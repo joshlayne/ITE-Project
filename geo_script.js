@@ -32,8 +32,41 @@ function getCountry(coordinates) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             var country = response.address.country;
+            var state = response.address.state;
 
-            console.log(country);
+            console.log(state, country);
+
+            switch (country) {
+                case "Barbados":
+                        window.location.href="./regions/caribbean/Barbados/index_bb.html";
+                    break;
+
+                case "Dominica":
+                        window.location.href="./regions/caribbean/Dominica/index_dm.html";
+                    break;
+            
+                case "St. Vincent and the Grenadines":
+                        window.location.href="./regions/caribbean/SVG/index_vc.html";
+                    break;
+
+                case ("United States"):
+                    if (state = "Florida")
+                        window.location.href="./regions/us/Florida/index_fl.html";
+                    break;
+
+                case "United Arab Emirates":
+                    if (state = "Dubai")
+                        window.location.href="./regions/mena/Dubai/index_ae.html";
+                    break;
+
+                case "Lebanon":
+                    window.location.href="./regions/mena/Lebanon/index_lb.html";
+                    break;
+
+                default:
+                    document.getElementById("status").innerHTML = "Country not supported";
+                    break;
+            }
 
             if ((country == "Barbados") || (country == "St. Vincent and the Grenadines") || (country == "Dominica")) {
                 //window.location.href="./regions/index_wi.html";
