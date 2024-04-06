@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $output = "";
 
-        if ($result->num_rows > 0) {
+        if ($result->num_rows >= 0) {
             // Output data of each row
 
             while($row = $result->fetch_assoc()) {
