@@ -37,6 +37,14 @@ if ($vehicle == 4) { //Sedan
     $price = 20.00;
 }
 
+if ($id == "") {
+    echo '<script>
+        alert("Please login using the form first, then book a ride.");
+        window.location.href = "../rides_ae.php";
+    </script>';
+    //header("Location: ../rides_fl.php");
+}
+
 //echo $vehicle . " " . $pickup . " " . $destination . " " . $time . " " . $current_date;
 
 // Insert data into database

@@ -40,6 +40,13 @@ if (date('l') == "Tuesday") {
     }
 }
 
+if ($id == "") {
+    echo '<script>
+        alert("Please login using the form first, then book a ride.");
+        window.location.href = "../rides_dm.php";
+    </script>';
+    //header("Location: ../rides_fl.php");
+}
 
 //echo $vehicle . " " . $pickup . " " . $destination . " " . $time . " " . $current_date;
 
