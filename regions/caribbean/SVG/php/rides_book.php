@@ -31,12 +31,12 @@ $time_date = date('Y-m-d H:i:s');
 if (date('l') == "Tuesday") {
     $price = 5.00;
 } else {
-    if ($vehicle == 1) {
-        $price = 20.00;
-    } elseif ($vehicle == 2) {
-        $price = 10.00;
-    } elseif ($vehicle == 3) {
+    if ($vehicle == 4) { //Sedan
         $price = 15.00;
+    } elseif ($vehicle == 5) { // SUV
+        $price = 10.00;
+    } elseif ($vehicle == 6) { // Hatchback
+        $price = 20.00;
     }
 }
 

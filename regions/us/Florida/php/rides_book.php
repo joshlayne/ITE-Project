@@ -29,12 +29,12 @@ date_default_timezone_set('America/Barbados');
 $time_date = date('Y-m-d H:i:s');
 
 
-if ($vehicle == 1) {
-    $price = 20.00;
-} elseif ($vehicle == 2) {
-    $price = 10.00;
-} elseif ($vehicle == 3) {
+if ($vehicle == 1) { //Sedan
     $price = 15.00;
+} elseif ($vehicle == 2) { // SUV
+    $price = 10.00;
+} elseif ($vehicle == 3) { // Hatchback
+    $price = 20.00;
 }
 
 
