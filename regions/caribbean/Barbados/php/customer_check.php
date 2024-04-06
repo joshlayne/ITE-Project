@@ -131,7 +131,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ID doesn't exist, create a new record and store it in session variable
         createRecord($entered_fname, $entered_lname, $entered_email, $entered_phone);
         $_SESSION["id"] = returnID($entered_email);
-        header("Location: ../rides_bb.php");
+        $id = $_SESSION["id"];
+
+        $sql = "SELECT * FROM rides WHERE UserID = '$id'";
+        $result = $conn->query($sql);
+
+        $output = "";
+
+        if ($result->num_rows > 0) {
+            // Output data of each row
+
+            while($row = $result->fetch_assoc()) {
+                // $output .= $row["RideID"]. " " . $row["UserID"]. " " . $row["VehicleID"]. " " . $row["PickupLocation"]. " " . $row["Destination"]. " " . $row["RideDateTime"]. " " . $row["RideStatus"]. " " . $row["RideCost"]. "<br>";
+                // You can display other columns as needed
+
+                $output .= '<tr>';
+                $output .= '<td>' . $row["RideID"] . '</td>';
+                $output .= '<td>' . $row["UserID"] . '</td>';
+                $output .= '<td>' . $row["VehicleID"] . '</td>';
+                $output .= '<td>' . $row["PickupLocation"] . '</td>';
+                $output .= '<td>' . $row["Destination"] . '</td>';
+                $output .= '<td>' . $row["RideDateTime"] . '</td>';
+                $output .= '<td>' . $row["RideStatus"] . '</td>';
+                $output .= '<td>' . $row["RideCost"] . '</td>';
+                $output .= '</tr>';
+            }
+
+            $_SESSION["output"] = $output;
+
+            header("Location: ../rides_bb.php");
+        }
         //echo "New record created!";
     }
 }
