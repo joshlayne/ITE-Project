@@ -18,14 +18,14 @@
         <![endif]-->
 
         <div class="navbar">
-            <a href="index_ae.html" >
+            <a href="index_lb.html" >
                 <img src="../../../assets/logo.png" alt="islandMovers logo" style="width:209px;height:65px" id="logo"></img>
             </a>
 
             <div class="navbar-links">
                 <ul>
-                    <li><a href="index_ae.html">Home</a></li>
-                    <li><a href="rides_ae.php">Rides</a></li>
+                    <li><a href="index_lb.html">Home</a></li>
+                    <li><a href="rides_lb.php">Rides</a></li>
                 </ul>
             </div>
         </div>
