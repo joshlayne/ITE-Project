@@ -64,19 +64,19 @@ function getCountry(coordinates) {
                     break;
 
                 default:
-                    document.getElementById("status").innerHTML = "Country not supported";
+                    document.getElementById("status").innerHTML = "Sorry, your location is not supported";
                     break;
             }
 
-            if ((country == "Barbados") || (country == "St. Vincent and the Grenadines") || (country == "Dominica")) {
-                //window.location.href="./regions/index_wi.html";
-            } else if ((country = "United States")) {
-                //window.location.href="./regions/index_us.html";
-            } else if ((country = "United Arab Emirates") || (country == "Lebanon") || (country == "Turkey")) {
-                //window.location.href="./regions/index_mena.html";
-            } else {
-                document.getElementById("status").innerHTML = "Country not supported";
-            }
+            // if ((country == "Barbados") || (country == "St. Vincent and the Grenadines") || (country == "Dominica")) {
+            //     //window.location.href="./regions/index_wi.html";
+            // } else if ((country = "United States")) {
+            //     //window.location.href="./regions/index_us.html";
+            // } else if ((country = "United Arab Emirates") || (country == "Lebanon") || (country == "Turkey")) {
+            //     //window.location.href="./regions/index_mena.html";
+            // } else {
+            //     document.getElementById("status").innerHTML = "Country not supported";
+            // }
 
             return;
         }

@@ -6,7 +6,7 @@ function connectToDatabase() {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "islandMovers_bb";
+    $dbname = "islandMovers_vc";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -104,23 +104,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Output data of each row
 
             while($row = $result->fetch_assoc()) {
-                $output .= $row["RideID"]. " " . $row["UserID"]. " " . $row["VehicleID"]. " " . $row["PickupLocation"]. " " . $row["Destination"]. " " . $row["RideDateTime"]. " " . $row["RideStatus"]. " " . $row["RideCost"]. "<br>";
+                // $output .= $row["RideID"]. " " . $row["UserID"]. " " . $row["VehicleID"]. " " . $row["PickupLocation"]. " " . $row["Destination"]. " " . $row["RideDateTime"]. " " . $row["RideStatus"]. " " . $row["RideCost"]. "<br>";
                 // You can display other columns as needed
+
+                $output .= '<tr>';
+                $output .= '<td>' . $row["RideID"] . '</td>';
+                $output .= '<td>' . $row["UserID"] . '</td>';
+                $output .= '<td>' . $row["VehicleID"] . '</td>';
+                $output .= '<td>' . $row["PickupLocation"] . '</td>';
+                $output .= '<td>' . $row["Destination"] . '</td>';
+                $output .= '<td>' . $row["RideDateTime"] . '</td>';
+                $output .= '<td>' . $row["RideStatus"] . '</td>';
+                $output .= '<td>' . $row["RideCost"] . '</td>';
+                $output .= '</tr>';
             }
 
             $_SESSION["output"] = $output;
-            header("Location: rides_bb.php");
+            header("Location: ../rides_vc.php");
         } else {
             $output .= "0 results found for the email: " . $entered_email;
             $_SESSION["output"] = $output;
-            header("Location: rides_bb.php");
+            header("Location: ../rides_vc.php");
         }
         //echo "ID exists!";
     } else {
         // ID doesn't exist, create a new record and store it in session variable
         createRecord($entered_fname, $entered_lname, $entered_email, $entered_phone);
         $_SESSION["id"] = returnID($entered_email);
-        header("Location: rides_bb.php");
+        header("Location: ../rides_vc.php");
         //echo "New record created!";
     }
 }

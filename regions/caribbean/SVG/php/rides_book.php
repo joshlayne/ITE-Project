@@ -4,7 +4,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "islandMovers_bb";
+$dbname = "islandMovers_vc";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -28,13 +28,18 @@ $time = $_POST['time'];
 date_default_timezone_set('America/Barbados');
 $time_date = date('Y-m-d H:i:s');
 
-if ($vehicle == 1) {
-    $price = 20.00;
-} elseif ($vehicle == 2) {
-    $price = 10.00;
-} elseif ($vehicle == 3) {
-    $price = 15.00;
+if (date('l') == "Tuesday") {
+    $price = 5.00;
+} else {
+    if ($vehicle == 1) {
+        $price = 20.00;
+    } elseif ($vehicle == 2) {
+        $price = 10.00;
+    } elseif ($vehicle == 3) {
+        $price = 15.00;
+    }
 }
+
 
 //echo $vehicle . " " . $pickup . " " . $destination . " " . $time . " " . $current_date;
 
@@ -52,16 +57,26 @@ if ($conn->query($sql) === TRUE) {
             // Output data of each row
 
             while($row = $result->fetch_assoc()) {
-                $output .= $row["RideID"]. " " . $row["UserID"]. " " . $row["VehicleID"]. " " . $row["PickupLocation"]. " " . $row["Destination"]. " " . $row["RideDateTime"]. " " . $row["RideStatus"]. " " . $row["RideCost"]. "<br>";
+                // $output .= $row["RideID"]. " " . $row["UserID"]. " " . $row["VehicleID"]. " " . $row["PickupLocation"]. " " . $row["Destination"]. " " . $row["RideDateTime"]. " " . $row["RideStatus"]. " " . $row["RideCost"]. "<br>";
                 // You can display other columns as needed
+                $output .= '<tr>';
+                $output .= '<td>' . $row["RideID"] . '</td>';
+                $output .= '<td>' . $row["UserID"] . '</td>';
+                $output .= '<td>' . $row["VehicleID"] . '</td>';
+                $output .= '<td>' . $row["PickupLocation"] . '</td>';
+                $output .= '<td>' . $row["Destination"] . '</td>';
+                $output .= '<td>' . $row["RideDateTime"] . '</td>';
+                $output .= '<td>' . $row["RideStatus"] . '</td>';
+                $output .= '<td>' . $row["RideCost"] . '</td>';
+                $output .= '</tr>';
             }
 
             $_SESSION["output"] = $output;
-            header("Location: rides_bb.php");
+            header("Location: ../rides_vc.php");
         } else {
             $output .= "0 results found for the email: " . $entered_email;
             $_SESSION["output"] = $output;
-            header("Location: rides_bb.php");
+            header("Location: ../rides_vc.php");
         }
             //echo "ID exists!";
         //exit;

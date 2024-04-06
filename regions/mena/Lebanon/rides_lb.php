@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>islandMovers - Dubai</title>
+        <title>islandMovers - Lebanon</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../../stylesheets/styles.css">
@@ -19,13 +19,13 @@
 
         <div class="navbar">
             <a href="index_ae.html" >
-                <img src="../../../assets/22.png" alt="islandMovers logo" style="width:209px;height:65px"></img>
+                <img src="../../../assets/logo.png" alt="islandMovers logo" style="width:209px;height:65px" id="logo"></img>
             </a>
 
             <div class="navbar-links">
                 <ul>
                     <li><a href="index_ae.html">Home</a></li>
-                    <li><a href="rides_ae.html">Rides</a></li>
+                    <li><a href="rides_ae.php">Rides</a></li>
                 </ul>
             </div>
         </div>
@@ -34,7 +34,24 @@
             <div class="rides">
                 <p class="heading">Rides History</p>
                 <div class="table-con">
-                    <p>Enter your contact information to see ride history</p>
+                <?php
+                    session_start();
+                    if(isset($_SESSION["output"])) {
+                        echo "<table>" . "
+                        <tr>
+                            <th>Ride ID</th>
+                            <th>User ID</th>
+                            <th>Vehicle ID</th>
+                            <th>Pick-up Location</th>
+                            <th>Destination</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Price</th>
+                        </tr>" . $_SESSION["output"] . "</table>";
+                    } else {
+                        echo "Enter your contact info in the form provided to the right to see rides history. <br> أدخل معلومات الاتصال الخاصة بك في النموذج المقدم على اليمين لرؤية سجل الرحلات.";
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -43,9 +60,13 @@
                     <p style="font-weight:bold;">Contact Info:</p>
                     <button class="open-button" onclick="openForm()">Open Form</button>
                     <div class="contact-form" id="myForm">
-                        <form action="" method="post" class="form-container">
+                        <form action="./php/customer_check.php" method="post" class="form-container">
+                            <label for="fname">First Name</label>
+                            <input type="text" name="fname" placeholder="John">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" name="lname" placeholder="Doe">
                             <label for="phone">Phone #:</label>
-                            <input type="text" name="phone" placeholder="(784) ###-####">
+                            <input type="text" name="phone" placeholder="(246) ###-####">
                             <label for="email">Email:</label>
                             <input type="text" name="email" placeholder="xxxxxx@xxxx.com">
 
@@ -56,18 +77,15 @@
                 </div>
                 <div class="rides-book">
                     <p style="font-weight:bold;">Book a Ride:</p>
-                    <form action="" method="post" class="ridesForm">
+                    <form action="./php/rides_book.php" method="post" class="ridesForm">
                         <label for="vehicle">Vehicle:</label>
-                        <select>
-                            <option value="reg">Regular</option>
-                            <option value="prem">Premium</option>
-                        </select><br>
+                        <?php include './php/vehicles_load.php'; ?> <br>
                         <label for="pickup">Pickup Location:</label>
                         <input type="text" name="pickup" placeholder=""><br>
                         <label for="destination">Destination:</label>
                         <input type="text" name="destination" placeholder=""><br>
-                        <label for="time">Time:</label>
-                        <input type="text" name="destination" placeholder="00:00"><br>
+                        <!-- <label for="time">Time:</label>
+                        <input type="text" name="time" placeholder="00:00"><br> -->
 
                         <button type="submit" class="btn">Book</button>
                     </form>
@@ -79,9 +97,9 @@
             <div class="contact-box2" style="clear: both; width:100%; ">
                 <p class="heading">Contact us</p>
                 <div class="info" style="display:flex;">
-                    <div style="width:32%;"><p style="text-align: center;">(971) 04 000-0000</p> </div>
-                    <div style="width:32%;"><p style="text-align: center;">islandmoversvg@gmail.com</p></div>
-                    <div style="width:32%;"><p style="text-align: center;"><img src="../../../assets/13.png" alt="Instagram icon" style="width:21px; height:21px"> @islandmoversvg</p></div>
+                    <div style="width:32%;"><p style="text-align: center;">(961) 3 000-000</p> </div>
+                    <div style="width:32%;"><p style="text-align: center;">islandmoverslb@gmail.com</p></div>
+                    <div style="width:32%;"><p style="text-align: center;"><img src="../../../assets/13.png" alt="Instagram icon" style="width:21px; height:21px"> @islandmoverslb</p></div>
                 </div>
             </div>
         </div>
