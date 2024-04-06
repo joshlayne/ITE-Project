@@ -62,13 +62,13 @@
                     <div class="contact-form" id="myForm">
                         <form action="./php/customer_check.php" method="post" class="form-container">
                             <label for="fname">First Name</label>
-                            <input type="text" name="fname" placeholder="John">
+                            <input type="text" name="fname" id="fname" placeholder="John" required>
                             <label for="lname">Last Name:</label>
-                            <input type="text" name="lname" placeholder="Doe">
+                            <input type="text" name="lname" id="lname" placeholder="Doe" required>
                             <label for="phone">Phone #:</label>
-                            <input type="text" name="phone" placeholder="(246) ###-####">
+                            <input type="text" name="phone" id="phone" placeholder="(971) ## ###-####" required>
                             <label for="email">Email:</label>
-                            <input type="text" name="email" placeholder="xxxxxx@xxxx.com">
+                            <input type="text" name="email" id="email" placeholder="xxxxxx@xxxx.com" required>
 
                             <button type="submit" class="btn">Login</button>
                             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -81,9 +81,9 @@
                         <label for="vehicle">Vehicle:</label>
                         <?php include './php/vehicles_load.php'; ?> <br>
                         <label for="pickup">Pickup Location:</label>
-                        <input type="text" name="pickup" placeholder=""><br>
+                        <input type="text" name="pickup" id="pickup" placeholder="" required><br>
                         <label for="destination">Destination:</label>
-                        <input type="text" name="destination" placeholder=""><br>
+                        <input type="text" name="destination" id="destination" placeholder="" required><br>
                         <!-- <label for="time">Time:</label>
                         <input type="text" name="time" placeholder="00:00"><br> -->
 
