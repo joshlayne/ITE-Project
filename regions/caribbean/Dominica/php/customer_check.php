@@ -46,7 +46,7 @@ function checkEmail($email) {
 function returnID($email) {
     $conn = connectToDatabase();
 
-    $sql = "SELECT * FROM Customers WHERE email = '$email'";
+    $sql = "SELECT * FROM customers WHERE email = '$email'";
     // $stmt = $conn->prepare($sql);
     // $stmt->bind_param("s", $email);
     // $stmt->execute();
@@ -69,7 +69,7 @@ function returnID($email) {
 function createRecord($fname, $lname, $email, $phone) {
     $conn = connectToDatabase();
 
-    $sql = "INSERT INTO Customers (CountryID, FirstName, LastName, Email, PhoneNumber) VALUES (2, '$fname', '$lname', '$email', '$phone')";
+    $sql = "INSERT INTO customers (CountryID, FirstName, LastName, Email, PhoneNumber) VALUES (2, '$fname', '$lname', '$email', '$phone')";
     // $stmt = $conn->prepare($sql);
     // $stmt->bind_param("s", $email);
     // $stmt->execute();

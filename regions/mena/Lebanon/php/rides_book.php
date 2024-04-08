@@ -25,7 +25,7 @@ $pickup = $_POST['pickup'];
 $destination = $_POST['destination'];
 $time = $_POST['time'];
 // $current_date = date('Y-m-d'); // Returns the current date in the format YYYY-MM-DD
-date_default_timezone_set('Asia/Dubai');
+date_default_timezone_set('Asia/Beirut');
 $time_date = date('Y-m-d H:i:s');
 
 

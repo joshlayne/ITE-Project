@@ -2,8 +2,8 @@
 session_start();
 // Connect to MySQL
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "root"; //change for username
+$password = ""; //change for real username
 $dbname = "islandMovers_bb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
